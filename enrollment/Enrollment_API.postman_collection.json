@@ -1,0 +1,325 @@
+{
+  "info": {
+    "_postman_id": "enrollment-microservice-collection",
+    "name": "Enrollment Microservice API",
+    "description": "Complete API collection for Enrollment Microservice with all endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "ENROLLMENT CRUD",
+      "item": [
+        {
+          "name": "Get All Enrollments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/enrollments?per_page=15&status=&user_id=&course_id=",
+              "host": ["{{base_url}}"],
+              "path": ["enrollments"],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "disabled": false
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "user_id",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "course_id",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get all enrollments with optional filters and pagination"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Specific Enrollment",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/enrollments/1",
+              "host": ["{{base_url}}"],
+              "path": ["enrollments", "1"]
+            },
+            "description": "Get details of a specific enrollment by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Enrollment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"course_id\": 5,\n  \"status\": \"active\",\n  \"grade\": null,\n  \"notes\": \"Student is performing well\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments",
+              "host": ["{{base_url}}"],
+              "path": ["enrollments"]
+            },
+            "description": "Create a new enrollment"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Enrollment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"completed\",\n  \"grade\": 85.5,\n  \"notes\": \"Course completed successfully\",\n  \"completed_at\": \"2025-11-15\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/1",
+              "host": ["{{base_url}}"],
+              "path": ["enrollments", "1"]
+            },
+            "description": "Update an existing enrollment"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Enrollment",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/enrollments/1",
+              "host": ["{{base_url}}"],
+              "path": ["enrollments", "1"]
+            },
+            "description": "Delete an enrollment"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FILTER & SEARCH",
+      "item": [
+        {
+          "name": "Get Enrollments by User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/1/enrollments?per_page=15&status=",
+              "host": ["{{base_url}}"],
+              "path": ["users", "1", "enrollments"],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "disabled": false
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get all enrollments for a specific user"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Enrollments by Course",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/courses/5/enrollments?per_page=15&status=",
+              "host": ["{{base_url}}"],
+              "path": ["courses", "5", "enrollments"],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "disabled": false
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get all enrollments for a specific course"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "STATISTICS & ANALYTICS",
+      "item": [
+        {
+          "name": "Get Enrollment Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/enrollments/statistics/summary",
+              "host": ["{{base_url}}"],
+              "path": ["enrollments", "statistics", "summary"]
+            },
+            "description": "Get enrollment statistics (total, active, completed, pending, cancelled)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "BULK OPERATIONS",
+      "item": [
+        {
+          "name": "Bulk Update Enrollment Status",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enrollment_ids\": [1, 2, 3],\n  \"status\": \"active\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/bulk/update-status",
+              "host": ["{{base_url}}"],
+              "path": ["enrollments", "bulk", "update-status"]
+            },
+            "description": "Update status for multiple enrollments at once"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "YOUR_TOKEN_HERE",
+      "type": "string"
+    }
+  ]
+}
