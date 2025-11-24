@@ -3,6 +3,7 @@ EduConnect adalah platform pembelajaran online berbasis arsitektur microservices
 
 📂 Struktur Proyek
 Folder utama berisi beberapa microservice:
+```
 auth-service – proses autentikasi & otorisasi
 course-access – akses materi, daftar kursus
 course-management – pengelolaan kursus oleh dosen
@@ -10,7 +11,8 @@ enrollment – pendaftaran kursus oleh mahasiswa
 feedback – pemberian ulasan/penilaian non-akademik
 user-interface – (opsional) interface jika dibuat
 startServices.bat – script untuk menjalankan semua service sekaligus
-
+```
+```
 educonnect-microservices-php/
 ├── api-gateway/                         # API Gateway (PHP)
 │   ├── public/
@@ -109,6 +111,7 @@ educonnect-microservices-php/
 │
 ├── docker-compose.yml                   # Opsional jika ingin Docker
 └── README.md                            # Dokumentasi utama
+```
 
 ▶️ Cara Menjalankan Proyek
 1. Clone Project
@@ -123,12 +126,14 @@ php artisan key:generate
 php artisan serve --port=8000
 
 📌 Gateway Port: 8000
+```
 Contoh routing di gateway:
 /auth/... → auth-service
 /courses/... → course-access
 /manage/... → course-management
 /enrollment/... → enrollment
 /feedback/... → feedback
+```
 
 3. Menjalankan Masing-Masing Service (Contoh Format Umum)
 Setiap service mengikuti pola yang sama:
@@ -140,6 +145,7 @@ php artisan migrate
 php artisan serve --port=<port-service>
 
 🌐 Pengaturan ENV
+```
 ENV Gateway
 AUTH_SERVICE_URL=http://127.0.0.1:8001
 COURSE_ACCESS_URL=http://127.0.0.1:8002
@@ -153,12 +159,14 @@ APP_SERVICE_NAME=<nama-service>
 
 Contoh:
 APP_SERVICE_NAME=auth-service
+```
 
 📄 Dokumentasi API
 Ringkasan endpoint + dokumentasi lengkap tersedia di folder:
 docs/api/
 
 🗂️ Struktur Postman Collection
+```
 EduConnect API
 │
 ├── Auth Service
@@ -195,11 +203,13 @@ EduConnect API
     ├── /manage/...
     ├── /enrollment/...
     └── /feedback/...
+```
 
 
 | Nama                | Peran             | Fitur                                |
 | ------------------- | ----------------- | ------------------------------------ |
-| Aura Haya Azka      | Backend Developer | Feedback                             |
-| Aulia Indah Nuriaji | Backend Developer | Course Access                        |
-| Billy Aditya        | System Analyst    | Course Management                    |
-| M. Fariz Eka        | System Analyst    | Auth & Notification (jika digunakan) |
+| Aura Haya Azka      | Backend Developer | Course Access , Course Management, Feedback, Course Management, Enrollment, Feedback, Auth                 |
+| Aulia Indah Nuriaji | Backend Developer | Course Access , Course Management, Feedback, Course Management, Enrollment, Feedback, Auth                     |
+| Noviardha Fitri Yuldhari| Backend Developer | Course Access , Course Management, Feedback, Course Management, Enrollment, Feedback, Auth
+| Billy Aditya        | System Analyst    | Grades                   |
+| M. Fariz Eka        | System Analyst    | Notification |
