@@ -5,11 +5,11 @@ EduConnect adalah platform pembelajaran online berbasis arsitektur microservices
 Folder utama berisi beberapa microservice:
 ```
 auth-service – proses autentikasi & otorisasi
-course-access – akses materi, daftar kursus
-course-management – pengelolaan kursus oleh dosen
+course-access – akses materi
+course-management – pengelolaan kursus oleh admin
 enrollment – pendaftaran kursus oleh mahasiswa
 feedback – pemberian ulasan/penilaian non-akademik
-user-interface – (opsional) interface jika dibuat
+user-interface – antarmuka untuk pengguna
 startServices.bat – script untuk menjalankan semua service sekaligus
 ```
 ```
@@ -119,7 +119,7 @@ git clone <repo-url>
 cd UTS_IAE
 
 2. Menjalankan API Gateway
-cd auth-service   # atau folder gateway jika Anda punya
+cd auth-service   
 composer install
 cp .env.example .env
 php artisan key:generate
@@ -135,7 +135,7 @@ Contoh routing di gateway:
 /feedback/... → feedback
 ```
 
-3. Menjalankan Masing-Masing Service (Contoh Format Umum)
+3. Menjalankan Masing-Masing Service
 Setiap service mengikuti pola yang sama:
 cd <nama-service>
 composer install
@@ -211,5 +211,5 @@ EduConnect API
 | Aura Haya Azka      | Backend Developer | Course Access , Course Management, Feedback, Course Management, Enrollment, Feedback, Auth                 |
 | Aulia Indah Nuriaji | Backend Developer | Course Access , Course Management, Feedback, Course Management, Enrollment, Feedback, Auth                     |
 | Noviardha Fitri Yuldhari| Backend Developer | Course Access , Course Management, Feedback, Course Management, Enrollment, Feedback, Auth
-| Billy Aditya        | System Analyst    | Grades                   |
-| M. Fariz Eka        | System Analyst    | Notification |
+| Billy Aditya        | System Analyst    | Grades, System Analyst                   |
+| M. Fariz Eka        | System Analyst    | Notification, System Analyst |
